@@ -9,7 +9,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- 高德地图API（优化加载，避免拦截） -->
   <script src="https://webapi.amap.com/maps?v=2.0&key=0a9fd566455e825c9236ef8b8db29bc1&plugin=AMap.ToolBar"></script>
 
   <script>
@@ -36,16 +35,17 @@
       .text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
       .card-hover { @apply hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300; }
       .nav-link { @apply px-4 py-2 rounded-lg hover:bg-secondary/20 transition-colors duration-300 font-medium; }
-      .btn-primary { @apply bg-secondary text-white px-6 py-3 rounded-lg font-medium hover:bg-secondary/90 transition-all shadow-md; }
-      .btn-outline { @apply border border-secondary text-secondary px-6 py-3 rounded-lg font-medium hover:bg-secondary/10 transition-all; }
-      .btn-map { @apply bg-white text-secondary border-2 border-secondary px-5 py-2.5 rounded-xl font-medium hover:bg-secondary hover:text-white transition-all shadow-sm; }
+      .btn-primary { @apply bg-secondary text-white px-6 py-3 rounded-lg font-medium hover:bg-secondary/90 transition-all shadow-md active:scale-95; }
+      .btn-outline { @apply border border-secondary text-secondary px-6 py-3 rounded-lg font-medium hover:bg-secondary/10 transition-all active:scale-95; }
+      .btn-map { @apply bg-white text-secondary border-2 border-secondary px-5 py-2.5 rounded-xl font-medium hover:bg-secondary hover:text-white transition-all shadow-sm active:scale-95; }
+      .btn-action { @apply bg-secondary text-white px-3 py-2 rounded text-sm hover:bg-secondary/90 transition-all active:scale-95; }
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; color: #4A4A4A; }
     .hero-gradient { background: linear-gradient(135deg, #FDE2E4 0%, #F8C8DC 100%); }
     #map { width:100%; height:560px; border-radius:20px; box-shadow:0 10px 40px rgba(0,0,0,0.1); }
     .amap-info { border-radius:12px; overflow:hidden; }
-    /* 模态框样式 */
+
     .modal-backdrop {
       position: fixed;
       top: 0;
@@ -103,7 +103,7 @@
         <li><a href="#map-section" class="btn-map ml-2">设备地图</a></li>
         <li><a href="#contact" class="btn-primary ml-2">联系我们</a></li>
       </ul>
-      <button id="menuBtn" class="md:hidden text-secondary text-2xl">
+      <button id="menuBtn" class="md:hidden text-secondary text-2xl active:scale-90">
         <i class="fa-solid fa-bars"></i>
       </button>
     </nav>
@@ -145,7 +145,7 @@
   </div>
 </section>
 
-<!-- 地图模块（修复版） -->
+<!-- 地图模块 -->
 <section id="map-section" class="py-20 bg-white">
   <div class="container mx-auto px-4 md:px-8">
     <div class="text-center mb-12">
@@ -156,7 +156,6 @@
       </p>
     </div>
 
-    <!-- 可视化管理按钮 -->
     <div class="flex justify-center mb-5">
       <button id="openAdmin" class="btn-outline text-sm">📊 可视化管理</button>
     </div>
@@ -165,7 +164,7 @@
   </div>
 </section>
 
-<!-- 后台管理模态框（页面内，彻底解决本地限制） -->
+<!-- 后台管理模态框 -->
 <div id="adminModal" class="modal-backdrop">
   <div class="modal-content">
     <button id="closeModal" class="modal-close">&times;</button>
@@ -187,42 +186,42 @@
             <td class="p-3">92片</td>
             <td class="p-3">58片</td>
             <td class="p-3 text-green-600">充足</td>
-            <td class="p-3"><button class="edit-btn bg-secondary text-white px-3 py-1 rounded text-sm hover:bg-secondary/90 transition">修改</button></td>
+            <td class="p-3"><button class="edit-btn btn-action">修改</button></td>
           </tr>
           <tr class="border-b border-gray-100">
             <td class="p-3">大庆万达广场</td>
             <td class="p-3">46片</td>
             <td class="p-3">28片</td>
             <td class="p-3 text-blue-600">正常</td>
-            <td class="p-3"><button class="edit-btn bg-secondary text-white px-3 py-1 rounded text-sm hover:bg-secondary/90 transition">修改</button></td>
+            <td class="p-3"><button class="edit-btn btn-action">修改</button></td>
           </tr>
           <tr class="border-b border-gray-100">
             <td class="p-3">大庆新玛特商场</td>
             <td class="p-3">32片</td>
             <td class="p-3">19片</td>
             <td class="p-3 text-blue-600">正常</td>
-            <td class="p-3"><button class="edit-btn bg-secondary text-white px-3 py-1 rounded text-sm hover:bg-secondary/90 transition">修改</button></td>
+            <td class="p-3"><button class="edit-btn btn-action">修改</button></td>
           </tr>
           <tr class="border-b border-gray-100">
             <td class="p-3">大庆客运枢纽站</td>
             <td class="p-3">5片</td>
             <td class="p-3">3片</td>
             <td class="p-3 text-red-600">缺货</td>
-            <td class="p-3"><button class="edit-btn bg-secondary text-white px-3 py-1 rounded text-sm hover:bg-secondary/90 transition">修改</button></td>
+            <td class="p-3"><button class="edit-btn btn-action">修改</button></td>
           </tr>
           <tr class="border-b border-gray-100">
             <td class="p-3">哈尔滨中央商城</td>
             <td class="p-3">53片</td>
             <td class="p-3">31片</td>
             <td class="p-3 text-blue-600">正常</td>
-            <td class="p-3"><button class="edit-btn bg-secondary text-white px-3 py-1 rounded text-sm hover:bg-secondary/90 transition">修改</button></td>
+            <td class="p-3"><button class="edit-btn btn-action">修改</button></td>
           </tr>
           <tr class="border-b border-gray-100">
             <td class="p-3">哈尔滨哈西万达</td>
             <td class="p-3">66片</td>
             <td class="p-3">42片</td>
             <td class="p-3 text-blue-600">正常</td>
-            <td class="p-3"><button class="edit-btn bg-secondary text-white px-3 py-1 rounded text-sm hover:bg-secondary/90 transition">修改</button></td>
+            <td class="p-3"><button class="edit-btn btn-action">修改</button></td>
           </tr>
         </tbody>
       </table>
@@ -236,46 +235,37 @@
 </div>
 
 <script>
-// 地图初始化（修复加载逻辑，避免拦截）
 window.onload = function() {
-  // 等待高德API加载完成
-  if (typeof AMap !== 'undefined') {
-    initMap();
-  } else {
-    setTimeout(initMap, 500);
-  }
+  if (typeof AMap !== 'undefined') initMap();
+  else setTimeout(initMap, 500);
 };
 
 function initMap() {
   var map = new AMap.Map('map', {
     zoom: 15,
-    center: [125.1117, 46.5792], // 哈医大大庆校区（精准定位）
+    center: [125.1117, 46.5792],
     viewMode: '3D'
   });
 
-  // 添加缩放控件
   AMap.plugin(['AMap.ToolBar'], function(){
     map.addControl(new AMap.ToolBar());
   });
 
-  // 自定义图标
   var icon = new AMap.Icon({
     size: new AMap.Size(36,36),
     image: "https://img.icons8.com/fluency/96/F099B6/vending-machine.png",
     imageSize: new AMap.Size(36,36)
   });
 
-  // 精准定位列表
   var machineList = [
-    { position: [125.169634,46.595206], title: "大庆·哈医大大庆校区A楼", stock: "92片", pad: "58片", stockStatus: "充足", restock: "2025-12-30 08:40" },
-    { position: [125.095165,46.59432], title: "大庆·万达广场（1号门）", stock: "46片", pad: "28片", stockStatus: "正常", restock: "2025-12-28 14:30" },
-    { position: [125.118849,46.58485], title: "大庆·新玛特商场（正门）", stock: "32片", pad: "19片", stockStatus: "正常", restock: "2025-12-27 10:20" },
-    { position: [125.141915,46.563459], title: "大庆·客运枢纽站（进站口）", stock: "05片", pad: "03片", stockStatus: "⚠️ 缺货", restock: "2025-12-30 预计" },
-    { position: [126.61906,45.771948], title: "哈尔滨·中央商城（南门）", stock: "53片", pad: "31片", stockStatus: "正常", restock: "2025-12-28 16:40" },
-    { position: [126.586669,45.701058], title: "哈尔滨·哈西万达广场（2号门）", stock: "66片", pad: "42片", stockStatus: "正常", restock: "2025-12-28 11:20" }
+    { position: [125.1117, 46.5792], title: "大庆·哈医大大庆校区（正门）", stock: "92片", pad: "58片", stockStatus: "充足", restock: "2025-12-30 08:40" },
+    { position: [125.1052, 46.5661], title: "大庆·万达广场（1号门）", stock: "46片", pad: "28片", stockStatus: "正常", restock: "2025-12-28 14:30" },
+    { position: [125.1007, 46.5735], title: "大庆·新玛特商场（正门）", stock: "32片", pad: "19片", stockStatus: "正常", restock: "2025-12-27 10:20" },
+    { position: [125.1315, 46.5814], title: "大庆·客运枢纽站（进站口）", stock: "05片", pad: "03片", stockStatus: "⚠️ 缺货", restock: "2025-12-30 预计" },
+    { position: [126.6307, 45.7567], title: "哈尔滨·中央商城（南门）", stock: "53片", pad: "31片", stockStatus: "正常", restock: "2025-12-28 16:40" },
+    { position: [126.5801, 45.7498], title: "哈尔滨·哈西万达广场（2号门）", stock: "66片", pad: "42片", stockStatus: "正常", restock: "2025-12-28 11:20" }
   ];
 
-  // 渲染地图标记
   machineList.forEach(item => {
     let marker = new AMap.Marker({
       position: item.position,
@@ -284,7 +274,6 @@ function initMap() {
       offset: new AMap.Pixel(-18,-36)
     });
 
-    // 点击弹出信息窗
     marker.on('click', () => {
       let content = `
       <div style="padding:14px; min-width:240px; font-family:Inter;">
@@ -296,7 +285,7 @@ function initMap() {
           <div>📅 最近补货：${item.restock}</div>
         </div>
         <div style="margin-top:10px;">
-          <button onclick="startNav(${item.position[0]},${item.position[1]})" style="background:#F099B6; color:white; border:none; padding:6px 10px; border-radius:6px; width:100%; cursor:pointer;">🧭 导航到此处</button>
+          <button onclick="startNav(${item.position[0]},${item.position[1]})" style="background:#F099B6; color:white; border:none; padding:6px 10px; border-radius:6px; width:100%; cursor:pointer; transform:scale(1); transition:0.2s;" onmousedown="this.style.transform='scale(0.95)'" onmouseup="this.style.transform='scale(1)'">🧭 导航到此处</button>
         </div>
       </div>`;
       new AMap.InfoWindow({ content, offset: new AMap.Pixel(0,-35) }).open(map, marker.getPosition());
@@ -304,54 +293,31 @@ function initMap() {
   });
 }
 
-// 导航功能（兼容PC/手机）
+// 微信内导航自动跳网页版高德（修复完成）
 function startNav(lng, lat) {
-  let isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-  let url = isMobile ? `amapuri://route/plan/?dlat=${lat}&dlon=${lng}` : `https://ditu.amap.com/dir?&destination=${lng},${lat}&t=1`;
+  let url = `https://ditu.amap.com/dir?&destination=${lng},${lat}&t=1`;
   window.open(url, '_blank');
 }
 
-// ===================== 模态框交互（可交互按钮） =====================
+// 模态框
 const modal = document.getElementById('adminModal');
 const openBtn = document.getElementById('openAdmin');
 const closeBtn = document.getElementById('closeModal');
 
-// 打开模态框
-openBtn.addEventListener('click', () => {
-  modal.style.display = 'flex';
-});
+openBtn.addEventListener('click', () => { modal.style.display = 'flex'; });
+closeBtn.addEventListener('click', () => { modal.style.display = 'none'; });
+modal.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
 
-// 关闭模态框
-closeBtn.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
-
-// 点击背景关闭
-modal.addEventListener('click', (e) => {
-  if (e.target === modal) {
-    modal.style.display = 'none';
-  }
-});
-
-// 可交互按钮
 document.querySelectorAll('.edit-btn').forEach(btn => {
   btn.addEventListener('click', function() {
-    const deviceName = this.closest('tr').querySelector('td:first-child').textContent;
-    alert(`正在编辑设备：${deviceName}`);
+    const name = this.closest('tr').querySelector('td:first-child').textContent;
+    alert('正在编辑设备：' + name);
   });
 });
 
-document.getElementById('addDevice').addEventListener('click', () => {
-  alert('新增设备功能已触发');
-});
-
-document.getElementById('editLocation').addEventListener('click', () => {
-  alert('修改定位功能已触发');
-});
-
-document.getElementById('editStock').addEventListener('click', () => {
-  alert('修改库存功能已触发');
-});
+document.getElementById('addDevice').addEventListener('click', () => { alert('新增设备功能已触发'); });
+document.getElementById('editLocation').addEventListener('click', () => { alert('修改定位功能已触发'); });
+document.getElementById('editStock').addEventListener('click', () => { alert('修改库存功能已触发'); });
 </script>
 
 <!-- 项目概述 -->
@@ -690,12 +656,11 @@ document.getElementById('editStock').addEventListener('click', () => {
   </div>
 </footer>
 
-<button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-secondary text-white rounded-full flex items-center justify-center shadow-lg hidden z-40 hover:bg-secondary/90">
+<button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-secondary text-white rounded-full flex items-center justify-center shadow-lg hidden z-40 hover:bg-secondary/90 active:scale-95">
   <i class="fa-solid fa-arrow-up"></i>
 </button>
 
 <script>
-// 菜单
 const menuBtn = document.getElementById('menuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 menuBtn.addEventListener('click', () => {
@@ -711,7 +676,6 @@ document.querySelectorAll('#mobileMenu a').forEach(link => {
   });
 });
 
-// 回到顶部
 const backToTop = document.getElementById('backToTop');
 window.addEventListener('scroll', () => {
   window.scrollY > 500 ? backToTop.classList.remove('hidden') : backToTop.classList.add('hidden');
