@@ -257,13 +257,14 @@ function initMap() {
     imageSize: new AMap.Size(36,36)
   });
 
+  // 精准定位列表
   var machineList = [
-    { position: [125.1117, 46.5792], title: "大庆·哈医大大庆校区（正门）", stock: "92片", pad: "58片", stockStatus: "充足", restock: "2025-12-30 08:40" },
-    { position: [125.1052, 46.5661], title: "大庆·万达广场（1号门）", stock: "46片", pad: "28片", stockStatus: "正常", restock: "2025-12-28 14:30" },
-    { position: [125.1007, 46.5735], title: "大庆·新玛特商场（正门）", stock: "32片", pad: "19片", stockStatus: "正常", restock: "2025-12-27 10:20" },
-    { position: [125.1315, 46.5814], title: "大庆·客运枢纽站（进站口）", stock: "05片", pad: "03片", stockStatus: "⚠️ 缺货", restock: "2025-12-30 预计" },
-    { position: [126.6307, 45.7567], title: "哈尔滨·中央商城（南门）", stock: "53片", pad: "31片", stockStatus: "正常", restock: "2025-12-28 16:40" },
-    { position: [126.5801, 45.7498], title: "哈尔滨·哈西万达广场（2号门）", stock: "66片", pad: "42片", stockStatus: "正常", restock: "2025-12-28 11:20" }
+    { position: [125.169634,46.595206], title: "大庆·哈医大大庆校区A楼", stock: "92片", pad: "58片", stockStatus: "充足", restock: "2025-12-30 08:40" },
+    { position: [125.095165,46.59432], title: "大庆·万达广场（1号门）", stock: "46片", pad: "28片", stockStatus: "正常", restock: "2025-12-28 14:30" },
+    { position: [125.118849,46.58485], title: "大庆·新玛特商场（正门）", stock: "32片", pad: "19片", stockStatus: "正常", restock: "2025-12-27 10:20" },
+    { position: [125.141915,46.563459], title: "大庆·客运枢纽站（进站口）", stock: "05片", pad: "03片", stockStatus: "⚠️ 缺货", restock: "2025-12-30 预计" },
+    { position: [126.61906,45.771948], title: "哈尔滨·中央商城（南门）", stock: "53片", pad: "31片", stockStatus: "正常", restock: "2025-12-28 16:40" },
+    { position: [126.586669,45.701058], title: "哈尔滨·哈西万达广场（2号门）", stock: "66片", pad: "42片", stockStatus: "正常", restock: "2025-12-28 11:20" }
   ];
 
   machineList.forEach(item => {
